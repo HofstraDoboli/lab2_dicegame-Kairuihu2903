@@ -1,0 +1,17 @@
+RAND_MAX value is 2147483647
+918104357	2126757642	141422125	627830404	1970083322	580059848	287250443	552956795	483580839	1174303962	
+Q1: What is the output of rand(). Why? 
+Answer Q1: the output of rand() is ten random numbers between 0 to RAND_MAX, RAND_MAX is a constant interget that is already defined bythe cstdlib
+
+3	4	2	1	1	1	2	3	4	4	
+Q2: What is the output of rand()%5. Why? 
+Answer Q2: % means modulo and the answer that will be provided will be the remainder of the division between two numbers, thus the output of rand()%5 will be the remainder of the divison between a random number and 5 and thus will be between 0-5
+
+5	4	6	5	3	5	7	5	4	6	
+Q3: What is the output of rand()%5+3. Why?
+Answer Q3: the output of rand()%5+3 is the remainder of the division between a random number and 5, after this the remainder is added with 3 thus providing a number between 3-7
+
+Q4: What is the output of the program when srand(time(NULL)) is removed. Why
+Answer Q4: srand(time(NULL)) assigns the current time to the seed which allows the seed to progress, without the srand(time(NULL)) the seed does not progress thus the result is the randomly generated numbers will stay the same because there is no change to the state of the machine
+
+4	1	5	6	5	5	2	5	4	6	3	5	2	5	5	3	4	1	2	6	6	6	4	2	2	1	2	2	3	3	2	6	4	6	5	2	3	1	4	6	4	1	3	5	5	1	5	6	5	6	
