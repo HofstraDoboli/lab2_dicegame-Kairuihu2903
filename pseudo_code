@@ -1,1 +1,22 @@
 Add your steps (pseudo-code) for the dice game here.
+char start_game
+int winning_roll
+int score
+char next
+cout << "welcome" << "instructions" << endl
+while loop to start game
+int roll1 = rand()    
+int roll2 = rand()
+int total = roll1 + roll2
+while loop for first roll
+cout "you rolled a"
+set winning conditions 7 and 11, (make sure game will provide Y/N to continue)
+set losing conditions 2,3,and 12 (make sure game will provide Y/N to continue)
+set conditions to enter the next rolling loop
+while loop for next rolls
+reset roll1 and roll2
+cout "you throw a"
+set conditions to win (make sure game will provide Y/N to continue)
+set conditions to lose (make sure game will provide Y/N to continue)
+set condtions to loop (make sure game will provide Y/N to continue)
+set conditions to end game
