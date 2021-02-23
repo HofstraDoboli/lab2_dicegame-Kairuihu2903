@@ -28,6 +28,8 @@ int main()
     char next;                 //conditions for Y/N in second while loop without starting first loop
     while (start_game == 'y' || start_game == 'Y')
     {
+        first_roll = 0;
+        cout << "testing" << endl;
         int roll1 = rand()%6+1; //rolls from 1-6
         int roll2 = rand()%6+1;
         int total = roll1+roll2; // total
@@ -35,18 +37,18 @@ int main()
         {
             cout << "First_roll: " << first_roll << endl;
             winning_roll = roll1 + roll2;  //sets the winning roll
-            cout << "you rolled a " << roll1 << " and " << roll2 << " giving you a total of " << total << endl;
+            cout << "you rolled a " << roll1 << " and " << roll2 << " giving you a total of " << total << " 1" << endl;
                 if (total == 7 || total == 11)  //winning conditon for first roll only
                 {
                     cout << "You Won on your first roll congrats" << endl;
-                    cout << "would you like to play again "<< endl;
+                    cout << "would you like to play again (Y/N) ";
                     cin >> start_game;
                     first_roll = 1;
                 }
                 else if (total == 2 || total == 3 || total == 12) //losing conditon for first roll only
                 {
                     cout << "You Lost" << endl;
-                    cout << "would you like to play again "<< endl;
+                    cout << "would you like to play again (Y/N) ";
                     cin >> start_game;
                     first_roll = 1;
                 }
@@ -61,42 +63,43 @@ int main()
                     } 
                     score = score + total;
                 }
-            first_roll = -1; // condition to not loop the first while again
-        }    
-            while (score > 0 && (total != winning_roll || total == 7) && (next == 'y' || next == 'Y'))    //three conditions to enter and exit second while loop
-            {
-                    roll1 = rand()%6+1;
-                    roll2 = rand()%6+1;
-                    total = roll1 + roll2; //resets rolls and total
-                    cout << "you rolled " << roll1 << "and" << roll2 << " giving you a total of " << total << endl;
-                    if (total == 7) // sets losing condition for second loop only
+            first_roll = 1; // condition to not loop the first while again
+        }   
+        while (score > 0 && (next == 'y' || next == 'Y'))    //three conditions to enter and exit second while loop
+        {
+                roll1 = rand()%6+1;
+                roll2 = rand()%6+1;
+                total = roll1 + roll2; //resets rolls and total
+                cout << "you rolled " << roll1 << "and" << roll2 << " giving you a total of " << total << " 2" << endl;
+                cout << "your winning roll is " << winning_roll << endl;
+                if (total == 7) // sets losing condition for second loop only
+                {
+                    cout << "sorry you lose "<< endl;
+                    score = -1;
+                    cout << "would you like to play again (Y/N) "<< endl;
+                    cin >> start_game;
+                    first_roll = 0;
+                    score = 0;
+                }
+                else if (total == winning_roll)  //sets winning condition for second loop only
+                {
+                    cout << "You Win " << endl;
+                    score = -1;
+                    cout << "would you like to play again (Y/N) "<< endl;
+                    cin >> start_game;
+                    first_roll = 0;
+                    score = 0;
+                }
+                else //continues to loop till one of the two conditions is filled
+                {
+                    cout << "would you like to roll again (Y/N)";
+                    cin >> next;
+                    if (next == 'n' || next == 'N')
                     {
-                        cout << "sorry you lose "<< endl;
-                        score = -1;
-                        cout << "would you like to play again "<< endl;
-                        cin >> start_game;
-                        first_roll = 0;
-                        score = 0;
-                    }
-                    if (total == winning_roll)  //sets winning condition for second loop only
-                    {
-                        cout << "You Win " << endl;
-                        score = -1;
-                        cout << "would you like to play again "<< endl;
-                        cin >> start_game;
-                        first_roll = 0;
-                        score = 0;
-                    }
-                    else //continues to loop till one of the two conditions is filled
-                    {
-                        cout << "would you like to roll again (Y/N)";
-                        cin >> next;
-                        if (next == 'n' || next == 'N')
-                    {
-                        start_game = 'n';
+                    start_game = 'n';
                     } 
-                    }
-            }        
+                }
+        }        
     }
     cout << "End Game" << endl; 
 }
