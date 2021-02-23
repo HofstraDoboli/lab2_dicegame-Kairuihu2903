@@ -35,7 +35,7 @@ int main()
         {
             cout << "First_roll: " << first_roll << endl;
             winning_roll = roll1 + roll2;  //sets the winning roll
-            cout << "you rolled a " << roll1 << " and " << roll2 << " giving you a total of " << total << " 1 " << endl;
+            cout << "you rolled a " << roll1 << " and " << roll2 << " giving you a total of " << total << endl;
                 if (total == 7 || total == 11)  //winning conditon for first roll only
                 {
                     cout << "You Won on your first roll congrats" << endl;
@@ -68,13 +68,15 @@ int main()
                     roll1 = rand()%6+1;
                     roll2 = rand()%6+1;
                     total = roll1 + roll2; //resets rolls and total
-                    cout << "you rolled " << roll1 << "and" << roll2 << " giving you a total of " << total << " 2 " << endl;
+                    cout << "you rolled " << roll1 << "and" << roll2 << " giving you a total of " << total << endl;
                     if (total == 7) // sets losing condition for second loop only
                     {
                         cout << "sorry you lose "<< endl;
                         score = -1;
                         cout << "would you like to play again "<< endl;
                         cin >> start_game;
+                        first_roll = 0;
+                        score = 0;
                     }
                     if (total == winning_roll)  //sets winning condition for second loop only
                     {
@@ -82,6 +84,8 @@ int main()
                         score = -1;
                         cout << "would you like to play again "<< endl;
                         cin >> start_game;
+                        first_roll = 0;
+                        score = 0;
                     }
                     else //continues to loop till one of the two conditions is filled
                     {
