@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream> 
+#include <climits>
 using namespace std;
 
 int main()
@@ -48,11 +49,11 @@ int main()
   
 
     output_file << "\nQ1: (cin only) What happens when you run the code above? Explain why" << endl;
-    string answer = ""; // enter your answer in between ""
+    string answer = "after running the code, i enter the answer and the flag is false,/n after entering 4.5 the flag is still false stating that i had wrote 4 instead of 4.5,/n then the program continues to loop not accepting any other values,/n after this it runs the two cout statments." ;  // enter your answer in between ""
     output_file << "Answer Q1: " << answer << endl;
 
     cout << "\nCode for Q2 and Q3" << endl;
-    /* //uncomment when you get to Q2 and Q3
+    //uncomment when you get to Q2 and Q3
     for (int i = 0; i < array_values.size(); i++)
     {
         cout << "\tEnter the value " << array_values.at(i) << endl;
@@ -75,19 +76,19 @@ int main()
         
         cout << "\tYou entered " << val << endl << endl;
     }  
-    */
+    
 
     output_file << "\nQ2: (cin + fail+ignore) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "after starting the program and entering 10 the fail flag is set to 0, after entering 4.5 the fail flag is still set to 0,/n in addition the program states what is left unread with in the cin buffer as well as its length, after entering abc the fail flag is set to 1,/n an error messege them opens stating that the value entered is not an interger and to try again."; // enter your answer in between ""
     output_file << "Answer Q2: " << answer << endl;
 
     output_file << "\nQ3: Is the problem of reading an integer value solved? Explain your reasoning." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "no, because for 4.5 it sets the flag to false and it extracted 4 without saying it is not an interger"; // enter your answer in between ""
     output_file << "Answer Q3: " << answer << endl;
 
     cout << "\nCode for Q4" << endl;
     // uncomment when you get to Q4
-   /*
+    /*
     for (int i = 0; i < array_values.size(); i++)
     {
         cout << "\tEnter the value " << array_values.at(i) << endl;
@@ -99,13 +100,13 @@ int main()
                             // read more at http://www.cplusplus.com/reference/string/stoi/?kw=stoi
         cout << "\tYou entered " << val << endl << endl;
     }  
-*/
-    output_file << "\nQ4: (getline only) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
-    output_file << "Answer Q4: " << answer << endl;
 
+    output_file << "\nQ4: (getline only) What happens when you run the code above? Explain why." << endl;
+    answer = "while starting the code above, after entering 10, the program continues just fine,/n after entering 4.5 the programing states that the user has entered 4 instead of 4.5, but the program continues,/n after entering abc, the program states 'std::invalid_argument' which then aborts the program"; // enter your answer in between ""
+    output_file << "Answer Q4: " << answer << endl;
+   */
     // Comment the for loop for Q4 above - leave the answer to Q4
-    
+ 
     cout << "\nCode for Q5" << endl;
     for (int i = 0; i < array_values.size(); i++)
     {
@@ -124,7 +125,7 @@ int main()
         cout << "\tYou entered " << val << endl << endl;
     }
     output_file << "\nQ5: (getline+stoi) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "starting the code, after entering 10 the program continues,/n after entering 4.5 the program states that the user has inputed 4 instead 4.5, for abc the program still states that the user had entered 4 instead of the abc, same for value a. although the program now does not stop or loop./n this is similar to Q4 but instead of terminating the program, it contunues."; // enter your answer in between ""
     output_file << "Answer Q5: " << answer << endl;
 
     //6. Q6 Add code to enter integer values from the keyboard correctly = accept only 10, not 4.5, abc or a
@@ -139,6 +140,17 @@ int main()
         // it should display "Incorrect ", followed by the value you entered, for the rest of of the values 
         // (4.5, abc or a) 
         // YOUR CODE NEEDS TO DETECT that 4.5 is not an integer
+        string s;
+        getline(cin,s); 
+ 
+        try{
+            val = stoi(s);
+        }
+        catch(const std::invalid_argument& ia)
+        {
+            cerr << "\tInvalid argument: " << ia.what() << '\n';
+        }
+        cout << "\tYou entered " << val << endl << endl;
     }
     output_file << "\nQ6: Explain your method to validate integer values entered" << endl;
     answer = ""; // enter your answer in between ""
